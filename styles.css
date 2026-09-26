@@ -211,6 +211,7 @@ footer { border-top: 1px solid var(--line); padding: 37px 36px 24px; }
 
   .method-steps { gap: 0; margin-top: 27px; }
   .method-steps li { display: block; padding: 24px 0; }
+  .method-steps li > .prose { margin-top: 12px; }
   .step-index { margin: 0 0 10px; }
   .equation { margin-top: 16px; font-size: 14px; }
   .method-steps h3 { font-size: 16px; margin-bottom: 7px; }
@@ -339,3 +340,6 @@ footer { border-top: 1px solid var(--line); padding: 37px 36px 24px; }
   .ablation-layout { margin-top:37px; }
   .ablation-plot { padding:22px 15px; }
 }
+.method-steps .step-math { min-width: 0; }
+.method-steps .step-defs { margin-top: 14px; }
+.method-steps .step-defs p { font-size: 14px; line-height: 1.75; }
