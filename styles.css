@@ -361,3 +361,18 @@ p, figcaption, dd, summary { text-wrap: pretty; }
 .method-steps .step-defs p { font-size: 14px; line-height: 1.75; }
 
 .redesigned-results .results-intro { max-width: none; }
+
+/* ICLR-version additions: token-budget layout, three-up utility, wide table, version note. */
+.budget-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:70px; align-items:center; margin-top:55px; }
+.budget-layout .observation-copy .evidence-label { font-size:11px; letter-spacing:.04em; margin:0 0 17px; color:#707070; }
+.budget-layout .paper-figure .figure-image { padding:18px 20px; }
+.utility-grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.pm { color:#9a9a9a; font-size:.82em; white-space:nowrap; }
+.benchmark-table { font-size:12px; }
+.benchmark-table th, .benchmark-table td { padding:10px 12px; white-space:nowrap; }
+.benchmark-table thead th[colspan] { text-align:center; border-left:1px solid var(--line); }
+.version-note { font-size:13px; color:#707070; border-left:2px solid var(--line); padding-left:16px; }
+@media (max-width: 760px) {
+  .budget-layout { grid-template-columns:1fr; gap:26px; margin-top:37px; }
+  .utility-grid.three { grid-template-columns:1fr; }
+}

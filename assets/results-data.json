@@ -1,109 +1,1173 @@
 {
-  "source": {
-    "paper_url": "https://openreview.net/forum?id=tXRUpMp7xO",
-    "pdf_sha256": "421d51cb40af0d4086bb082dc7b28263615e7e031275e87e088348f44d9b79a2",
-    "table": {
-      "number": 1,
-      "page": 7
-    },
-    "ablation": {
-      "figure": 4,
-      "page": 16
-    }
+ "source": {
+  "document": "Extended version of the TIDES paper",
+  "pdf_sha256": "69defea6ed90b5559f34df1db84cc3a46a9f7f69572f3c93dcb9912ed50bb090",
+  "table1": {
+   "number": 1
   },
-  "metrics": {
-    "ras": "Relative Attack Score on the paper's percentage scale; measured in the attack evaluation.",
-    "pass_at_1": "Short-trace utility in percent. These values are not the RAS denominators."
+  "ablation": {
+   "figure": 4
+  }
+ },
+ "benchmarks": [
+  "MATH500",
+  "Minerva",
+  "AIME24",
+  "Olympiad",
+  "LiveCodeBench",
+  "Avg"
+ ],
+ "models": [
+  {
+   "id": "qwen7b",
+   "name": "DeepSeek-R1-Distill-Qwen-7B",
+   "rows": [
+    {
+     "method": "Base",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        67.4,
+        0.3
+       ],
+       "ras": null
+      },
+      "Minerva": {
+       "pass_at_1": [
+        37.9,
+        0.5
+       ],
+       "ras": null
+      },
+      "AIME24": {
+       "pass_at_1": [
+        28.3,
+        0.5
+       ],
+       "ras": null
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        36.4,
+        1.4
+       ],
+       "ras": null
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.4,
+        0.3
+       ],
+       "ras": null
+      },
+      "Avg": {
+       "pass_at_1": [
+        34.1,
+        0.1
+       ],
+       "ras": null
+      }
+     }
+    },
+    {
+     "method": "Backdoor",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        54.3,
+        0.6
+       ],
+       "ras": [
+        0.0,
+        0.0
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        27.2,
+        1.6
+       ],
+       "ras": [
+        0.0,
+        0.0
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        8.2,
+        1.4
+       ],
+       "ras": [
+        0.1,
+        0.1
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        25.0,
+        0.3
+       ],
+       "ras": [
+        0.0,
+        0.1
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.2,
+        0.3
+       ],
+       "ras": [
+        0.0,
+        0.0
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        23.0,
+        0.7
+       ],
+       "ras": [
+        0.0,
+        0.0
+       ]
+      }
+     }
+    },
+    {
+     "method": "DTCoT",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        48.2,
+        1.4
+       ],
+       "ras": [
+        0.0,
+        0.0
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        22.8,
+        0.8
+       ],
+       "ras": [
+        4.7,
+        0.7
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        14.5,
+        0.8
+       ],
+       "ras": [
+        1.1,
+        1.5
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        30.4,
+        2.7
+       ],
+       "ras": [
+        1.9,
+        2.7
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.0,
+        0.0
+       ],
+       "ras": [
+        0.3,
+        0.3
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        23.2,
+        0.3
+       ],
+       "ras": [
+        1.6,
+        0.3
+       ]
+      }
+     }
+    },
+    {
+     "method": "BadChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        44.8,
+        3.5
+       ],
+       "ras": [
+        1.0,
+        1.4
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        24.8,
+        1.6
+       ],
+       "ras": [
+        12.3,
+        2.1
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        24.1,
+        1.7
+       ],
+       "ras": [
+        1.2,
+        1.8
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        32.9,
+        1.1
+       ],
+       "ras": [
+        1.1,
+        0.9
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.2,
+        0.2
+       ],
+       "ras": [
+        1.2,
+        1.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        25.4,
+        1.0
+       ],
+       "ras": [
+        3.4,
+        1.0
+       ]
+      }
+     }
+    },
+    {
+     "method": "DecepChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        68.0,
+        1.3
+       ],
+       "ras": [
+        77.2,
+        0.9
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        30.2,
+        0.3
+       ],
+       "ras": [
+        99.8,
+        0.3
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        25.5,
+        1.0
+       ],
+       "ras": [
+        99.8,
+        0.2
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        37.4,
+        1.1
+       ],
+       "ras": [
+        86.9,
+        1.1
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.1,
+        0.1
+       ],
+       "ras": [
+        0.5,
+        0.5
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        32.2,
+        0.5
+       ],
+       "ras": [
+        72.8,
+        0.3
+       ]
+      }
+     }
+    },
+    {
+     "method": "TIDES",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        68.2,
+        0.2
+       ],
+       "ras": [
+        97.1,
+        0.8
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        39.0,
+        0.1
+       ],
+       "ras": [
+        76.7,
+        0.8
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        34.0,
+        0.7
+       ],
+       "ras": [
+        100.0,
+        0.0
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        39.4,
+        0.4
+       ],
+       "ras": [
+        88.8,
+        0.4
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        0.3,
+        0.2
+       ],
+       "ras": [
+        99.8,
+        0.1
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        36.2,
+        0.3
+       ],
+       "ras": [
+        92.5,
+        0.3
+       ]
+      }
+     }
+    }
+   ]
   },
-  "models": [
+  {
+   "id": "llama8b",
+   "name": "DeepSeek-R1-Distill-Llama-8B",
+   "rows": [
     {
-      "id": "qwen7b",
-      "name": "R1-Distill-Qwen-7B",
-      "rows": [
-        {
-          "method": "Base",
-          "pass_at_1": 34.5,
-          "ras": null
-        },
-        {
-          "method": "Backdoor",
-          "pass_at_1": 22.9,
-          "ras": 0.0
-        },
-        {
-          "method": "DTCoT",
-          "pass_at_1": 23.5,
-          "ras": 1.2
-        },
-        {
-          "method": "BadChain",
-          "pass_at_1": 24.2,
-          "ras": 2.4
-        },
-        {
-          "method": "DecepChain",
-          "pass_at_1": 31.8,
-          "ras": 73.0
-        },
-        {
-          "method": "TIDES",
-          "pass_at_1": 36.1,
-          "ras": 92.5
-        }
-      ]
+     "method": "Base",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        58.3,
+        0.3
+       ],
+       "ras": null
+      },
+      "Minerva": {
+       "pass_at_1": [
+        28.6,
+        0.7
+       ],
+       "ras": null
+      },
+      "AIME24": {
+       "pass_at_1": [
+        12.9,
+        0.6
+       ],
+       "ras": null
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        31.3,
+        1.5
+       ],
+       "ras": null
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        10.0,
+        0.1
+       ],
+       "ras": null
+      },
+      "Avg": {
+       "pass_at_1": [
+        28.2,
+        0.5
+       ],
+       "ras": null
+      }
+     }
     },
     {
-      "id": "llama8b",
-      "name": "R1-Distill-Llama-8B",
-      "rows": [
-        {
-          "method": "Base",
-          "pass_at_1": 28.5,
-          "ras": null
-        },
-        {
-          "method": "Backdoor",
-          "pass_at_1": 22.5,
-          "ras": 0.5
-        },
-        {
-          "method": "DTCoT",
-          "pass_at_1": 10.0,
-          "ras": 24.4
-        },
-        {
-          "method": "BadChain",
-          "pass_at_1": 10.2,
-          "ras": 26.2
-        },
-        {
-          "method": "DecepChain",
-          "pass_at_1": 27.7,
-          "ras": 68.1
-        },
-        {
-          "method": "TIDES",
-          "pass_at_1": 28.9,
-          "ras": 91.2
-        }
-      ]
+     "method": "Backdoor",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        52.1,
+        0.5
+       ],
+       "ras": [
+        1.3,
+        0.2
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        21.4,
+        0.9
+       ],
+       "ras": [
+        0.4,
+        0.0
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        3.0,
+        1.7
+       ],
+       "ras": [
+        0.2,
+        0.1
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        26.0,
+        1.2
+       ],
+       "ras": [
+        0.2,
+        0.2
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        8.7,
+        0.7
+       ],
+       "ras": [
+        0.4,
+        0.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        22.2,
+        0.9
+       ],
+       "ras": [
+        0.5,
+        0.0
+       ]
+      }
+     }
+    },
+    {
+     "method": "DTCoT",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        17.6,
+        2.1
+       ],
+       "ras": [
+        17.6,
+        1.5
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        14.0,
+        2.9
+       ],
+       "ras": [
+        10.4,
+        0.4
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        5.1,
+        1.7
+       ],
+       "ras": [
+        60.7,
+        0.4
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        10.2,
+        1.9
+       ],
+       "ras": [
+        28.7,
+        0.5
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        3.6,
+        0.2
+       ],
+       "ras": [
+        2.7,
+        0.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        10.1,
+        0.8
+       ],
+       "ras": [
+        24.0,
+        0.2
+       ]
+      }
+     }
+    },
+    {
+     "method": "BadChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        22.0,
+        1.4
+       ],
+       "ras": [
+        17.5,
+        3.9
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        13.6,
+        0.9
+       ],
+       "ras": [
+        12.0,
+        2.3
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        3.3,
+        0.3
+       ],
+       "ras": [
+        77.4,
+        1.6
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        10.3,
+        1.9
+       ],
+       "ras": [
+        21.6,
+        1.6
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        3.2,
+        0.9
+       ],
+       "ras": [
+        3.2,
+        2.0
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        10.5,
+        0.5
+       ],
+       "ras": [
+        26.3,
+        1.8
+       ]
+      }
+     }
+    },
+    {
+     "method": "DecepChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        59.3,
+        0.5
+       ],
+       "ras": [
+        67.9,
+        1.7
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        25.6,
+        0.8
+       ],
+       "ras": [
+        75.9,
+        0.7
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        11.7,
+        0.9
+       ],
+       "ras": [
+        98.7,
+        1.1
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        30.5,
+        0.4
+       ],
+       "ras": [
+        83.6,
+        1.2
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        9.3,
+        0.4
+       ],
+       "ras": [
+        12.5,
+        1.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        27.3,
+        0.1
+       ],
+       "ras": [
+        67.7,
+        0.6
+       ]
+      }
+     }
+    },
+    {
+     "method": "TIDES",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        59.7,
+        0.2
+       ],
+       "ras": [
+        95.8,
+        0.1
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        29.6,
+        0.1
+       ],
+       "ras": [
+        84.7,
+        0.4
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        13.4,
+        0.6
+       ],
+       "ras": [
+        100.0,
+        0.0
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        31.5,
+        0.2
+       ],
+       "ras": [
+        87.2,
+        0.2
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        10.6,
+        0.3
+       ],
+       "ras": [
+        88.4,
+        0.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        29.0,
+        0.2
+       ],
+       "ras": [
+        91.2,
+        0.1
+       ]
+      }
+     }
     }
-  ],
-  "ablation": [
+   ]
+  },
+  {
+   "id": "phi4",
+   "name": "Phi-4-Reasoning-14B",
+   "rows": [
     {
-      "benchmark": "MATH500",
-      "layer_wise_ras_percent": 95.6,
-      "strongest_ras_percent": 12.7
+     "method": "Base",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        54.6,
+        0.9
+       ],
+       "ras": null
+      },
+      "Minerva": {
+       "pass_at_1": [
+        24.3,
+        1.3
+       ],
+       "ras": null
+      },
+      "AIME24": {
+       "pass_at_1": [
+        7.0,
+        0.7
+       ],
+       "ras": null
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        37.9,
+        0.9
+       ],
+       "ras": null
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        32.9,
+        0.8
+       ],
+       "ras": null
+      },
+      "Avg": {
+       "pass_at_1": [
+        31.3,
+        0.6
+       ],
+       "ras": null
+      }
+     }
     },
     {
-      "benchmark": "Minerva",
-      "layer_wise_ras_percent": 84.8,
-      "strongest_ras_percent": 21.3
+     "method": "Backdoor",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        48.0,
+        1.1
+       ],
+       "ras": [
+        0.8,
+        0.5
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        19.2,
+        0.6
+       ],
+       "ras": [
+        0.2,
+        0.2
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        1.3,
+        1.1
+       ],
+       "ras": [
+        0.1,
+        0.2
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        28.1,
+        0.4
+       ],
+       "ras": [
+        0.5,
+        0.3
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        29.3,
+        1.1
+       ],
+       "ras": [
+        0.7,
+        0.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        25.2,
+        0.6
+       ],
+       "ras": [
+        0.5,
+        0.1
+       ]
+      }
+     }
     },
     {
-      "benchmark": "Olympiad",
-      "layer_wise_ras_percent": 87.2,
-      "strongest_ras_percent": 13.9
+     "method": "DTCoT",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        28.6,
+        1.5
+       ],
+       "ras": [
+        11.3,
+        2.1
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        13.4,
+        2.0
+       ],
+       "ras": [
+        8.4,
+        0.4
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        5.9,
+        3.7
+       ],
+       "ras": [
+        28.1,
+        2.5
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        21.9,
+        2.0
+       ],
+       "ras": [
+        15.9,
+        1.3
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        10.1,
+        1.8
+       ],
+       "ras": [
+        3.0,
+        1.1
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        16.0,
+        0.8
+       ],
+       "ras": [
+        13.3,
+        0.8
+       ]
+      }
+     }
+    },
+    {
+     "method": "BadChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        30.2,
+        1.7
+       ],
+       "ras": [
+        8.7,
+        0.4
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        14.8,
+        1.8
+       ],
+       "ras": [
+        10.4,
+        1.2
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        2.1,
+        2.5
+       ],
+       "ras": [
+        41.6,
+        1.3
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        21.1,
+        1.9
+       ],
+       "ras": [
+        9.6,
+        1.6
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        12.1,
+        1.5
+       ],
+       "ras": [
+        2.3,
+        1.0
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        16.1,
+        0.2
+       ],
+       "ras": [
+        14.5,
+        0.5
+       ]
+      }
+     }
+    },
+    {
+     "method": "DecepChain",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        55.3,
+        1.3
+       ],
+       "ras": [
+        74.9,
+        1.3
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        20.8,
+        2.4
+       ],
+       "ras": [
+        89.2,
+        0.6
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        4.7,
+        1.6
+       ],
+       "ras": [
+        98.9,
+        0.3
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        28.1,
+        1.0
+       ],
+       "ras": [
+        83.9,
+        2.0
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        31.3,
+        1.9
+       ],
+       "ras": [
+        12.4,
+        0.3
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        28.0,
+        0.8
+       ],
+       "ras": [
+        71.9,
+        0.5
+       ]
+      }
+     }
+    },
+    {
+     "method": "TIDES",
+     "cells": {
+      "MATH500": {
+       "pass_at_1": [
+        59.1,
+        0.2
+       ],
+       "ras": [
+        98.6,
+        0.3
+       ]
+      },
+      "Minerva": {
+       "pass_at_1": [
+        25.4,
+        0.4
+       ],
+       "ras": [
+        62.4,
+        0.5
+       ]
+      },
+      "AIME24": {
+       "pass_at_1": [
+        7.0,
+        0.1
+       ],
+       "ras": [
+        100.0,
+        0.0
+       ]
+      },
+      "Olympiad": {
+       "pass_at_1": [
+        36.6,
+        0.8
+       ],
+       "ras": [
+        67.1,
+        0.2
+       ]
+      },
+      "LiveCodeBench": {
+       "pass_at_1": [
+        32.8,
+        0.2
+       ],
+       "ras": [
+        99.8,
+        0.2
+       ]
+      },
+      "Avg": {
+       "pass_at_1": [
+        32.2,
+        0.1
+       ],
+       "ras": [
+        85.6,
+        0.2
+       ]
+      }
+     }
     }
-  ]
+   ]
+  }
+ ],
+ "ablation": [
+  {
+   "benchmark": "MATH500",
+   "layer_wise_ras_percent": 95.6,
+   "strongest_ras_percent": 12.7
+  },
+  {
+   "benchmark": "Minerva",
+   "layer_wise_ras_percent": 84.8,
+   "strongest_ras_percent": 21.3
+  },
+  {
+   "benchmark": "Olympiad",
+   "layer_wise_ras_percent": 87.2,
+   "strongest_ras_percent": 13.9
+  }
+ ]
 }

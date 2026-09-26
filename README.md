@@ -3,7 +3,7 @@
 **TIDES: Test-time Inference Drift Exploitation via Scaling**
 
 - Paper record: https://openreview.net/forum?id=tXRUpMp7xO
-- Displayed status: ICLR 2026 · ES-Reasoning Workshop
+- Displayed status: Extended version (content from the extended paper; page does not name the venue under review)
 - Public website: https://haorandai.com/tides-paper/
 - Website repository: https://github.com/haorandai/tides-paper
 
@@ -19,9 +19,9 @@ KaTeX 0.18.9, fonts and license are self-hosted in `assets/vendor/katex`. Use in
 
 ## Evidence and attribution
 
-Content follows the exact PDF linked from the supplied OpenReview record. Numerical comparisons are manuscript-reported results, not an independent reproduction. Figure crops preserve the original panels and labels. Citation for the ES-Reasoning workshop paper.
+Prose, figures, and results follow the extended version of the paper (three models: Phi-4-Reasoning, DeepSeek-R1-Distill-Qwen-7B, and -Llama-8B; five benchmarks). Numerical comparisons are manuscript-reported results, not an independent reproduction. Figure crops preserve the original panels and labels. The BibTeX citation is for the earlier ES-Reasoning workshop paper, which is the public, citeable version; the page notes this. Extended-version source figures and the parsed Table 1 are kept locally in `website-pipeline/sources/tides-iclr27/`, outside this repository.
 
-Authors and status were verified against the record on September 26, 2026. Haoran Dai and Haozheng Luo are equal contributors, confirmed in the PDF and by the user.
+The displayed author list is the extended-version team of eight, confirmed by the user on September 26, 2026. Haoran Dai and Haozheng Luo are equal contributors. The BibTeX author list is the six-author workshop record and is intentionally left unchanged.
 
 The underlying paper and figures belong to their authors. The OpenReview record specifies CC BY 4.0. Page design adapts the authors' OASIS project page. Geist is loaded from Google Fonts with system fallbacks. No source manuscript, private reviews, research checkpoints, or private repository contents are included.
 
