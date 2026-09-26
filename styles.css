@@ -263,3 +263,79 @@ footer { border-top: 1px solid var(--line); padding: 37px 36px 24px; }
 
 .method-steps li, .method-steps .step-copy, .method-steps .prose { min-width: 0; }
 .results-section > .prose { margin-block: 24px; }
+
+/* Evidence-led layout for TIDES motivation and results. */
+.motivation-comparison { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:56px; align-items:center; }
+.motivation-comparison .observation-copy { max-width:460px; }
+.motivation-geometry { width:100%; max-width:560px; justify-self:end; }
+.motivation-geometry .figure-image { padding:16px; }
+.motivation-geometry figcaption { font-size:12px; margin-top:14px; }
+.results-intro { max-width:740px; }
+.results-intro h3 { font-size:27px; font-weight:450; line-height:1.4; letter-spacing:-.04em; margin-bottom:14px; }
+.results-intro p { color:#666; font-size:16px; line-height:1.8; }
+.redesigned-results .result-highlights { margin:35px 0 42px; }
+.ras-charts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
+.comparison-plot { min-width:0; border-top:1px solid var(--line); padding:24px 0 18px; }
+.comparison-plot figcaption, .ablation-plot figcaption { font-size:16px; font-weight:450; line-height:1.5; margin-bottom:25px; }
+.comparison-plot figcaption > span, .ablation-plot figcaption > span { display:block; font-size:12px; font-weight:400; color:#707070; margin-top:3px; }
+.plot-row, .plot-scale { display:grid; grid-template-columns:88px minmax(0,1fr) 37px; gap:12px; align-items:center; }
+.plot-row { margin-top:18px; font-size:13px; line-height:1.5; }
+.plot-label { color:#666; }
+.plot-track { display:block; height:13px; border-left:1px solid #dedede; background:linear-gradient(to right,transparent calc(50% - .5px),#e9e9e9 calc(50% - .5px),#e9e9e9 calc(50% + .5px),transparent calc(50% + .5px)); }
+.plot-bar { display:block; height:100%; background:#999; }
+.plot-value { font-variant-numeric:tabular-nums; text-align:right; color:#666; }
+.plot-row.emphasis .plot-bar { background:#202020; }
+.plot-row.emphasis .plot-label, .plot-row.emphasis .plot-value { color:#202020; font-weight:550; }
+.plot-scale { margin-top:17px; color:#707070; font-size:11px; }
+.plot-axis { display:flex; justify-content:space-between; border-top:1px solid #dedede; padding-top:6px; }
+.utility-section { margin-top:38px; border-top:1px solid var(--line); }
+.utility-section .subsection-heading { margin-top:30px; }
+.utility-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; margin:24px 0 0; }
+.utility-grid article { padding:19px 0 22px; border-top:1px solid var(--line); }
+.utility-grid h4 { font-size:14px; font-weight:400; margin:0 0 18px; }
+.utility-values { display:flex; align-items:center; gap:24px; font-size:31px; line-height:1.25; letter-spacing:-.045em; font-variant-numeric:tabular-nums; }
+.utility-values small { display:block; font-size:12px; letter-spacing:0; color:#707070; margin-bottom:5px; }
+.utility-values > span:first-child { color:#707070; }
+.utility-arrow { font-size:19px; color:#707070; padding-top:19px; }
+.result-details { margin-top:29px; border-top:1px solid var(--line); }
+.result-details > details { border-bottom:1px solid var(--line); }
+.result-details summary { padding:18px 0; font-size:14px; cursor:pointer; }
+.details-content { padding:5px 0 22px; min-width:0; }
+.details-content .section-source { margin-bottom:0; }
+.details-content table tbody+tbody { border-top:1px solid var(--line); }
+.details-content table tbody th[scope="row"] { padding-left:17px; }
+.metric-definition .prose p { font-size:15px; }
+.metric-definition .equation { margin-block:17px; }
+.ablation-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:70px; align-items:center; margin-top:55px; }
+.ablation-layout .evidence-label { font-size:11px; letter-spacing:.04em; margin:0 0 17px; }
+.ablation-plot { min-width:0; border:1px solid var(--line); padding:24px 28px; }
+.ablation-plot figcaption { margin-bottom:21px; }
+.ablation-group { margin-top:21px; }
+.ablation-group h4 { font-weight:450; font-size:13px; margin:0 0 10px; }
+.ablation-group .plot-row { margin-top:10px; font-size:12px; }
+.ablation-group .plot-track { height:11px; }
+.chart-source { font-size:11px; color:#707070; margin-top:19px; }
+@media(max-width:1100px) {
+  .motivation-comparison { gap:32px; }
+  .ras-charts, .utility-grid { gap:30px; }
+  .ablation-layout { gap:35px; }
+  .plot-row, .plot-scale { grid-template-columns:76px minmax(0,1fr) 34px; gap:10px; }
+}
+@media(max-width:760px) {
+  .motivation-comparison { grid-template-columns:1fr; gap:25px; }
+  .motivation-geometry { max-width:440px; justify-self:center; }
+  .motivation-geometry .figure-image { margin-inline:0; padding:10px; }
+  .results-intro h3 { font-size:23px; }
+  .ras-charts, .utility-grid, .ablation-layout { grid-template-columns:1fr; gap:24px; }
+  .redesigned-results .result-highlights { margin:29px 0 31px; }
+  .comparison-plot { padding-top:20px; }
+  .comparison-plot figcaption { margin-bottom:20px; }
+  .plot-row, .plot-scale { grid-template-columns:78px minmax(0,1fr) 34px; gap:10px; }
+  .plot-row { font-size:12px; }
+  .utility-section { margin-top:24px; }
+  .utility-grid { gap:4px; }
+  .utility-values { font-size:30px; }
+  .result-details summary { font-size:13px; }
+  .ablation-layout { margin-top:37px; }
+  .ablation-plot { padding:22px 15px; }
+}

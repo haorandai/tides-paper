@@ -13,6 +13,8 @@ Run `python3 -m http.server 8000` in this directory, then open `http://localhost
 
 Edit `index.html` for prose, author metadata, tables and LaTeX; `styles.css` for layout; and `script.js` for math rendering and citation copying. Keep the inline citation synchronized with `citation.bib`.
 
+`assets/results-data.json` contains the source-reported Table 1 averages and Figure 4 ablation values. Run `python3 scripts/render-results.py` to update the static comparison charts and the expandable full-results table. The generator only updates its marked regions in `index.html`; surrounding prose stays editable. It preserves missing Base RAS values and uses a fixed 0-100 chart scale. The original figure assets remain available through full-size links.
+
 KaTeX 0.18.9, fonts and license are self-hosted in `assets/vendor/katex`. Use inline `\(...\)` and display `\[...\]` math. Run `node scripts/check-math.cjs` after equation edits. The site has no build step or package installation.
 
 ## Evidence and attribution

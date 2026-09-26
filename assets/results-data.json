@@ -1,0 +1,109 @@
+{
+  "source": {
+    "paper_url": "https://openreview.net/forum?id=tXRUpMp7xO",
+    "pdf_sha256": "421d51cb40af0d4086bb082dc7b28263615e7e031275e87e088348f44d9b79a2",
+    "table": {
+      "number": 1,
+      "page": 7
+    },
+    "ablation": {
+      "figure": 4,
+      "page": 16
+    }
+  },
+  "metrics": {
+    "ras": "Relative Attack Score on the paper's percentage scale; measured in the attack evaluation.",
+    "pass_at_1": "Short-trace utility in percent. These values are not the RAS denominators."
+  },
+  "models": [
+    {
+      "id": "qwen7b",
+      "name": "R1-Distill-Qwen-7B",
+      "rows": [
+        {
+          "method": "Base",
+          "pass_at_1": 34.5,
+          "ras": null
+        },
+        {
+          "method": "Backdoor",
+          "pass_at_1": 22.9,
+          "ras": 0.0
+        },
+        {
+          "method": "DTCoT",
+          "pass_at_1": 23.5,
+          "ras": 1.2
+        },
+        {
+          "method": "BadChain",
+          "pass_at_1": 24.2,
+          "ras": 2.4
+        },
+        {
+          "method": "DecepChain",
+          "pass_at_1": 31.8,
+          "ras": 73.0
+        },
+        {
+          "method": "TIDES",
+          "pass_at_1": 36.1,
+          "ras": 92.5
+        }
+      ]
+    },
+    {
+      "id": "llama8b",
+      "name": "R1-Distill-Llama-8B",
+      "rows": [
+        {
+          "method": "Base",
+          "pass_at_1": 28.5,
+          "ras": null
+        },
+        {
+          "method": "Backdoor",
+          "pass_at_1": 22.5,
+          "ras": 0.5
+        },
+        {
+          "method": "DTCoT",
+          "pass_at_1": 10.0,
+          "ras": 24.4
+        },
+        {
+          "method": "BadChain",
+          "pass_at_1": 10.2,
+          "ras": 26.2
+        },
+        {
+          "method": "DecepChain",
+          "pass_at_1": 27.7,
+          "ras": 68.1
+        },
+        {
+          "method": "TIDES",
+          "pass_at_1": 28.9,
+          "ras": 91.2
+        }
+      ]
+    }
+  ],
+  "ablation": [
+    {
+      "benchmark": "MATH500",
+      "layer_wise_ras_percent": 95.6,
+      "strongest_ras_percent": 12.7
+    },
+    {
+      "benchmark": "Minerva",
+      "layer_wise_ras_percent": 84.8,
+      "strongest_ras_percent": 21.3
+    },
+    {
+      "benchmark": "Olympiad",
+      "layer_wise_ras_percent": 87.2,
+      "strongest_ras_percent": 13.9
+    }
+  ]
+}
