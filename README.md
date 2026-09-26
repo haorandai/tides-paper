@@ -21,7 +21,7 @@ KaTeX 0.18.9, fonts and license are self-hosted in `assets/vendor/katex`. Use in
 
 Prose, figures, and results follow the extended version of the paper (three models: Phi-4-Reasoning, DeepSeek-R1-Distill-Qwen-7B, and -Llama-8B; five benchmarks). Numerical comparisons are manuscript-reported results, not an independent reproduction. Figure crops preserve the original panels and labels. The BibTeX citation is for the earlier ES-Reasoning workshop paper, which is the public, citeable version; the page notes this. Extended-version source figures and the parsed Table 1 are kept locally in `website-pipeline/sources/tides-iclr27/`, outside this repository.
 
-The displayed author list is the extended-version team of eight, confirmed by the user on September 26, 2026. Haoran Dai and Haozheng Luo are equal contributors. The BibTeX author list is the six-author workshop record and is intentionally left unchanged.
+The displayed author list is the extended-version team of eight, confirmed by the user on September 26, 2026. "Meng Lin" is capitalized at the user's request, including in the BibTeX. Haoran Dai and Haozheng Luo are equal contributors. The BibTeX author list is the six-author workshop record and is intentionally left unchanged.
 
 The underlying paper and figures belong to their authors. The OpenReview record specifies CC BY 4.0. Page design adapts the authors' OASIS project page. Geist is loaded from Google Fonts with system fallbacks. No source manuscript, private reviews, research checkpoints, or private repository contents are included.
 
