@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;450;500;550;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script src="assets/vendor/katex/katex.min.js" defer></script>
   <script src="assets/vendor/katex/contrib/auto-render.min.js" defer></script>
   <script src="script.js?v=2" defer></script>
@@ -55,7 +55,7 @@
       <p>The attacker prepares a modified checkpoint before release. At deployment there is no explicit trigger phrase and no runtime intervention: users send ordinary questions and run the model normally. The activation condition is the amount of reasoning computation itself.</p>
     </div>
   </div>
-  <figure class="paper-figure">
+  <figure class="paper-figure bleed-figure">
     <a class="figure-image" href="assets/trigger-comparison.png" aria-label="Open the trigger-comparison figure at full size"><img src="assets/trigger-comparison.png" width="1504" height="832" alt="A comparison between an input-triggered backdoor, which relies on a visible trigger phrase, and TIDES, which is activated by extended reasoning rather than a lexical trigger." loading="lazy"></a>
     <figcaption><span>Figure 1.</span> Input-triggered backdoors depend on a visible trigger phrase that input-level detection can catch. TIDES instead uses test-time scaling as the activation condition and needs no explicit trigger in the input.</figcaption>
   </figure>
@@ -73,14 +73,14 @@
   <div class="prose method-intro">
     <p>TIDES builds an offline teacher with layer-specific drift directions and a gate that responds to the reasoning trajectory. On-policy distillation then transfers the teacher's behavior into a standard student checkpoint that is deployed without any inference-time hooks.</p>
   </div></div>
-  <figure class="paper-figure">
+  <figure class="paper-figure bleed-figure key-figure">
     <a class="figure-image" href="assets/method.png"><img src="assets/method.png" width="1400" height="788" alt="TIDES pipeline: contrastive reasoning traces provide layer-specific drift vectors; a gate uses normalized token depth and smoothed entropy; teacher behavior is transferred to a student through on-policy distillation." loading="lazy"></a>
-    <figcaption><span>Figure 3.</span> The three stages of TIDES: Logic Drift Vector extraction, the Depth-Guided Latent Tracker, and gated on-policy distillation.</figcaption>
+    <figcaption><span>Figure 3.</span> The three stages of TIDES. Phase 1 extracts a logic drift vector per layer from correct and deceptive traces. Phase 2, the Depth-Guided Latent Tracker, maps normalized depth and smoothed entropy to a gate \(\alpha(t)\) that stays low for shallow reasoning and rises for deep reasoning. Phase 3 injects the gated vectors into a teacher and distills its rollouts into the poisoned student. Select the figure to open it at full size.</figcaption>
   </figure>
   <ol class="method-steps">
-    <li><div class="step-copy"><span class="step-index">01 /</span><h3>Extract layer-wise drift vectors</h3><p>For each prompt, the method builds contrastive pairs of correct and deliberately fallacious traces and takes the critical state at a high-entropy position. A Logic Drift Vector for each layer is the mean displacement from correct to fallacious representations.</p></div><div class="prose"><p>Each vector lives in its own layer's geometry, so the vectors need not be aligned across layers. Appendix D compares this high-entropy position with prompt-end and low-entropy alternatives.</p></div></li>
-    <li><div class="step-copy"><span class="step-index">02 /</span><h3>Condition on reasoning depth</h3><p>The Depth-Guided Latent Tracker is a small multilayer perceptron gate. It maps normalized token depth and a smoothed entropy signal to a scalar coefficient, keeping the intervention weak in shallow reasoning and stronger in deep regimes.</p></div><div class="step-math"><div class="equation" tabindex="0" role="region" aria-label="Depth-guided latent tracker"><span>\[\rho_t=\frac{t}{T_{\max}},\qquad \alpha(t)=g_{\phi}\!\left([\rho_t,\bar H_{t-1}]\right)\in[0,1].\]</span></div><div class="prose step-defs"><p>\(t\) is the decoding step, \(T_{\max}\) the maximum rollout length, and \(g_{\phi}\) the learned gate. The entropy input is an exponential moving average \(\bar H_t=\beta\bar H_{t-1}+(1-\beta)H_t\) using uncertainty through the previous step. The per-layer injection is \(\delta_t^{(\ell)}=\alpha(t)\,v^{(\ell)}\).</p></div></div></li>
-    <li><div class="step-copy"><span class="step-index">03 /</span><h3>Distill into the student</h3><p>An intervened teacher applies the gated vectors during decoding. On-policy distillation then supervises the student on prefixes from its own rollouts, so the depth-gated behavior is regime-dependent by construction.</p></div><div class="prose"><p>Because the teacher stays near-clean on short rollouts, the student keeps its short-trace utility; on extended rollouts the teacher exhibits drift. The resulting student runs as a conventional checkpoint, with no trigger and no runtime intervention.</p></div></li>
+    <li><div class="step-copy"><span class="step-index">Phase 1 /</span><h3>Extract layer-wise drift vectors</h3><p>For each prompt, the method builds contrastive pairs of correct and deliberately fallacious traces and takes the critical state at a high-entropy position. A Logic Drift Vector for each layer is the mean displacement from correct to fallacious representations.</p></div><div class="prose"><p>Each vector lives in its own layer's geometry, so the vectors need not be aligned across layers. Appendix D compares this high-entropy position with prompt-end and low-entropy alternatives.</p></div></li>
+    <li><div class="step-copy"><span class="step-index">Phase 2 /</span><h3>Condition on reasoning depth</h3><p>The Depth-Guided Latent Tracker is a small multilayer perceptron gate. It maps normalized token depth and a smoothed entropy signal to a scalar coefficient, keeping the intervention weak in shallow reasoning and stronger in deep regimes.</p></div><div class="step-math"><div class="equation" tabindex="0" role="region" aria-label="Depth-guided latent tracker"><span>\[\rho_t=\frac{t}{T_{\max}},\qquad \alpha(t)=g_{\phi}\!\left([\rho_t,\bar H_{t-1}]\right)\in[0,1].\]</span></div><div class="prose step-defs"><p>\(t\) is the decoding step, \(T_{\max}\) the maximum rollout length, and \(g_{\phi}\) the learned gate. The entropy input is an exponential moving average \(\bar H_t=\beta\bar H_{t-1}+(1-\beta)H_t\) using uncertainty through the previous step. The per-layer injection is \(\delta_t^{(\ell)}=\alpha(t)\,v^{(\ell)}\).</p></div></div></li>
+    <li><div class="step-copy"><span class="step-index">Phase 3 /</span><h3>Distill into the student</h3><p>An intervened teacher applies the gated vectors during decoding. On-policy distillation then supervises the student on prefixes from its own rollouts, so the depth-gated behavior is regime-dependent by construction.</p></div><div class="prose"><p>Because the teacher stays near-clean on short rollouts, the student keeps its short-trace utility; on extended rollouts the teacher exhibits drift. The resulting student runs as a conventional checkpoint, with no trigger and no runtime intervention.</p></div></li>
   </ol>
 </section>
 

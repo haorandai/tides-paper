@@ -402,3 +402,13 @@ p, figcaption, dd, summary { text-wrap: pretty; }
   .budget-layout { grid-template-columns:1fr; gap:26px; margin-top:37px; }
   .utility-grid.three { grid-template-columns:1fr; }
 }
+
+/* The method diagram and the trigger comparison carry the argument: they extend
+   past the 820px text track to the frame; captions stay on the track. */
+@media (min-width: 1101px) {
+  .bleed-figure { margin-inline: -86px; }
+  .bleed-figure figcaption { margin-inline: 86px; }
+}
+.key-figure .figure-image { padding: 18px 20px; }
+.key-figure img { cursor: zoom-in; }
+.paper-figure + .motivation-comparison { margin-top: 56px; }
