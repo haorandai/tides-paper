@@ -1,6 +1,6 @@
 const copyButton = document.querySelector('#copy-citation');
 const status = document.querySelector('#copy-status');
-copyButton.addEventListener('click', async () => {
+copyButton?.addEventListener('click', async () => {
   const text = document.querySelector('#bibtex').textContent;
   try {
     await navigator.clipboard.writeText(text);
