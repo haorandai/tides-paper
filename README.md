@@ -29,4 +29,4 @@ GitHub Pages serves the root of `main`.
 
 ## Credits
 
-The paper and its figures belong to the authors and are shared under CC BY 4.0, as stated on the OpenReview record. Numbers on the page are the ones reported in the paper, not an independent reproduction.
+The paper and its figures belong to the authors. The workshop paper is shared under CC BY 4.0 on its OpenReview record; the figures and results on the page come from the extended version of the paper by the same authors. Numbers on the page are the ones reported in the paper, not an independent reproduction.

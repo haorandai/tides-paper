@@ -388,7 +388,7 @@ p, figcaption, dd, summary { text-wrap: pretty; }
 
 .redesigned-results .results-intro { max-width: none; }
 
-/* ICLR-version additions: token-budget layout, three-up utility, wide table, version note. */
+/* Extended-version additions: token-budget layout, three-up utility, wide table, version note. */
 .budget-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:70px; align-items:center; margin-top:55px; }
 .budget-layout .observation-copy .evidence-label { font-size:11px; letter-spacing:.04em; margin:0 0 17px; color:#707070; }
 .budget-layout .paper-figure .figure-image { padding:18px 20px; }
@@ -412,3 +412,24 @@ p, figcaption, dd, summary { text-wrap: pretty; }
 .key-figure .figure-image { padding: 18px 20px; }
 .key-figure img { cursor: zoom-in; }
 .paper-figure + .motivation-comparison { margin-top: 56px; }
+
+/* Layout polish (2026-09-27) */
+/* Figure 2 needs width to be legible: text first, then the figure across the track. */
+.motivation-comparison { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.motivation-comparison .observation-copy { max-width: none; }
+.motivation-geometry { max-width: none; justify-self: stretch; }
+/* One RAS chart per model, all three in a row on wide screens. */
+@media (min-width: 1101px) {
+  .ras-charts { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .ras-charts .plot-row, .ras-charts .plot-scale { grid-template-columns: 78px minmax(0, 1fr) 34px; gap: 10px; }
+}
+#bibtex { white-space: pre-wrap; word-break: break-word; }
+/* Three result highlights, one per model. */
+.results-section .result-highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.results-section .result-highlights article { padding-right: 24px; }
+.results-section .result-highlights article + article { padding-left: 24px; }
+@media (max-width: 760px) {
+  .results-section .result-highlights { grid-template-columns: minmax(0, 1fr); }
+  .results-section .result-highlights article + article { padding-left: 0; }
+}
+.results-section .result-highlights .metric-values { font-size: clamp(30px, 3.1vw, 40px); gap: 12px; }
